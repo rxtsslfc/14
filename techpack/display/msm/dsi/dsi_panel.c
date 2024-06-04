@@ -1129,7 +1129,7 @@ static int dsi_panel_set_acl(struct dsi_panel *panel,
 {
 	int rc = 0;
 
-	pr_info("Set ACL to (%d)\n", param_info->value);
+	pr_debug("Set ACL to (%d)\n", param_info->value);
 	rc = dsi_panel_send_param_cmd(panel, param_info);
 	if (rc < 0)
 		DSI_ERR("%s: failed to send param cmds. ret=%d\n", __func__, rc);
@@ -1142,7 +1142,7 @@ static int dsi_panel_set_cabc(struct dsi_panel *panel,
 {
 	int rc = 0;
 
-	pr_info("%s: Set CABC to (%d)\n", __func__, param_info->value);
+	pr_debug("%s: Set CABC to (%d)\n", __func__, param_info->value);
 	panel->cabc_state = param_info->value;
 	rc = dsi_panel_send_param_cmd(panel, param_info);
 	if (rc < 0)
@@ -1156,7 +1156,7 @@ static int dsi_panel_set_dc(struct dsi_panel *panel,
 {
 	int rc = 0;
 
-	pr_info("Set DC to (%d)\n", param_info->value);
+	pr_debug("Set DC to (%d)\n", param_info->value);
 	panel->dc_state = param_info->value;
 	rc = dsi_panel_send_param_cmd(panel, param_info);
 	if (rc < 0)
@@ -1170,7 +1170,7 @@ static int dsi_panel_set_color(struct dsi_panel *panel,
 {
 	int rc = 0;
 
-	pr_info("Set COLOR to (%d)\n", param_info->value);
+	pr_debug("Set COLOR to (%d)\n", param_info->value);
 	rc = dsi_panel_send_param_cmd(panel, param_info);
 	if (rc < 0)
 		DSI_ERR("%s: failed to send param cmds. ret=%d\n", __func__, rc);
@@ -6017,7 +6017,7 @@ int dsi_panel_post_switch(struct dsi_panel *panel)
 		return -EINVAL;
 	}
 
-	pr_info("(%s)+\n", panel->name);
+	pr_debug("(%s)+\n", panel->name);
 	mutex_lock(&panel->panel_lock);
 
 	rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_POST_TIMING_SWITCH);
